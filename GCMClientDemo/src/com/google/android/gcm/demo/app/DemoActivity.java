@@ -156,10 +156,7 @@ public class DemoActivity extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
         	Bundle bundle = intent.getExtras();
-        	if (bundle.getString(EXTRA_MESSAGE) != null)
-        		mDisplay.append(bundle.getString(EXTRA_MESSAGE) + "\n");
-        	if (bundle.getString("teste") != null)
-        		mDisplay.append(bundle.getString("teste") + "\n");            
+        	mDisplay.append(bundle.getString(EXTRA_MESSAGE) + "\n");        	            
         }
     };
 
