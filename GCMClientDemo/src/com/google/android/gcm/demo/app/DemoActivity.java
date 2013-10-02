@@ -61,7 +61,8 @@ public class DemoActivity extends Activity {
             // Automatically registers application on startup.
             GCMRegistrar.register(this, SENDER_ID);
         } else {
-            // Device is already registered on GCM, check server.
+            // Device is already registered on GCM, needs to check if it is
+            // registered on our server as well.
             if (GCMRegistrar.isRegisteredOnServer(this)) {
                 // Skips registration.
                 mDisplay.append(getString(R.string.already_registered) + "\n");
@@ -115,14 +116,13 @@ public class DemoActivity extends Activity {
              * register or unregister the device (you will also need to
              * uncomment the equivalent options on options_menu.xml).
              */
-            /*
+            
             case R.id.options_register:
                 GCMRegistrar.register(this, SENDER_ID);
                 return true;
             case R.id.options_unregister:
                 GCMRegistrar.unregister(this);
-                return true;
-             */
+                return true;            
             case R.id.options_clear:
                 mDisplay.setText(null);
                 return true;
@@ -155,8 +155,8 @@ public class DemoActivity extends Activity {
             new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String newMessage = intent.getExtras().getString(EXTRA_MESSAGE);
-            mDisplay.append(newMessage + "\n");
+        	Bundle bundle = intent.getExtras();
+        	mDisplay.append(bundle.getString(EXTRA_MESSAGE) + "\n");        	            
         }
     };
 

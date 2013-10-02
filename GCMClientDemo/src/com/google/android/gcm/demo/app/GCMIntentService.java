@@ -18,6 +18,7 @@ package com.google.android.gcm.demo.app;
 import static com.google.android.gcm.demo.app.CommonUtilities.SENDER_ID;
 import static com.google.android.gcm.demo.app.CommonUtilities.displayMessage;
 
+import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -29,7 +30,7 @@ import com.google.android.gcm.GCMBaseIntentService;
 import com.google.android.gcm.GCMRegistrar;
 
 /**
- * IntentService responsible for handling GCM messages.
+ * {@link IntentService} responsible for handling GCM messages.
  */
 public class GCMIntentService extends GCMBaseIntentService {
 
